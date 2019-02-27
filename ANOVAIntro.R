@@ -57,18 +57,21 @@ ggplot(aes(x=Topo,y=seeds,fill=Topo,color=Topo),
 # Put it into a separate dataframe in order to create panel graphs
 
 ######---not working below this line
+#should work now
 
-SeedsGraph_Topo <- ggplot(aes(x=Topo,y=seeds,fill=Topo,color=Topo),
+SeedsGraph_Topo <- ggplot(aes(x=Topo,y=avgseed,fill=Topo,color=Topo),
                           data=Seeds_Topo)+
   geom_bar(stat="identity",position="dodge",color="black",show.legend=FALSE)
 
 
 #below is the graph with error bars added
-SeedsGraph_Topo <- ggplot(aes(x=Topography,y=avgseed,fill=Topography,color=Topography),
+SeedsGraph_Topo <- ggplot(aes(x=Topo,y=avgseed,fill=Topo,color=Topo),
                           data=Seeds_Topo)+
   geom_bar(stat="identity",position="dodge",color="black",show.legend=FALSE)
 +geom_errorbar(aes(ymax=avgseed+error, ymin=avgseed-error),
                position="dodge",color="black",width=0.9) 
+
+#did not check code below this but probably has same issues as the prior 2
 
 #below is more custom options I set:
 SeedsGraph_Topo <- ggplot(aes(x=Topography,y=avgseed,fill=Topography,color=Topography),
